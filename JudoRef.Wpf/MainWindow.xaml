@@ -5,41 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JudoRef.Wpf"
         mc:Ignorable="d"
-        Title="JudoRef" Height="450" Width="939.5">
+        Title="JudoRef" Height="450" Width="939.5" Loaded="Window_Loaded">
     <Grid>
-        <Grid Margin="10,49,564,115" Background="#FFFBE7DA">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="216*"/>
+            <ColumnDefinition Width="631*"/>
+            <ColumnDefinition Width="86*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="10,49,478.191,115" Background="#FFFBE7DA" Grid.ColumnSpan="2">
             <Label Content="Judoka 1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58"/>
             <TextBox x:Name="txtJudoka1" HorizontalAlignment="Left" Height="23" Margin="79,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <ComboBox x:Name="cmbGordel1" HorizontalAlignment="Left" Margin="79,32,0,0" VerticalAlignment="Top" Width="120"/>
             <Label Content="Gordel" HorizontalAlignment="Left" Margin="0,32,0,0" VerticalAlignment="Top" Width="58"/>
             <StackPanel x:Name="stpScore1" HorizontalAlignment="Left" Height="120" Margin="79,126,0,0" VerticalAlignment="Top" Width="73">
-                <Button x:Name="btnKoka1" Content="Koka" />
-                <Button x:Name="btnYuko1" Content="Yuko" Margin="0,10,0,0" />
-                <Button x:Name="btnWazeri1" Content="Wazeri" Margin="0,10,0,0" />
-                <Button x:Name="btnIppon1" Content="Ippon" Margin="0,10,0,0" />
+                <Button x:Name="btnKoka1" Content="Koka" Click="btnKoka1_Click" />
+                <Button x:Name="btnYuko1" Content="Yuko" Margin="0,10,0,0" Click="btnYuko1_Click" />
+                <Button x:Name="btnWazeri1" Content="Wazeri" Margin="0,10,0,0" Click="btnWazeri1_Click" />
+                <Button x:Name="btnIppon1" Content="Ippon" Margin="0,10,0,0" Click="btnIppon1_Click" />
             </StackPanel>
             <Label Content="Score" HorizontalAlignment="Left" Margin="0,69,0,0" VerticalAlignment="Top" Width="58"/>
             <Label x:Name="lblScore1" Content="0" HorizontalAlignment="Left" Margin="79,69,0,0" VerticalAlignment="Top" Width="58"/>
         </Grid>
-        <Grid Margin="233,50,483,115" Background="#FFCEF3F2">
+        <Grid Margin="17,50,397.191,115" Background="#FFCEF3F2" Grid.Column="1">
             <Label Content="Judoka 2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58"/>
             <TextBox x:Name="txtJudoka2" HorizontalAlignment="Left" Height="23" Margin="79,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <ComboBox x:Name="cmbGordel2" HorizontalAlignment="Left" Margin="79,32,0,0" VerticalAlignment="Top" Width="120"/>
             <Label Content="Gordel" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" Width="58"/>
             <StackPanel x:Name="stpScore2" HorizontalAlignment="Left" Height="120" Margin="79,125,0,0" VerticalAlignment="Top" Width="68">
-                <Button x:Name="btnKoka2" Content="Koka" />
-                <Button x:Name="btnYuko2" Content="Yuko" Margin="0,10,0,0" />
-                <Button x:Name="btnWazeri2" Content="Wazeri" Margin="0,10,0,0" />
-                <Button x:Name="btnIppon2" Content="Ippon" Margin="0,10,0,0" />
+                <Button x:Name="btnKoka2" Content="Koka" Click="btnKoka2_Click" />
+                <Button x:Name="btnYuko2" Content="Yuko" Margin="0,10,0,0" Click="btnYuko2_Click" />
+                <Button x:Name="btnWazeri2" Content="Wazeri" Margin="0,10,0,0" Click="btnWazeri2_Click" />
+                <Button x:Name="btnIppon2" Content="Ippon" Margin="0,10,0,0" Click="btnIppon2_Click" />
             </StackPanel>
             <Label Content="Score" HorizontalAlignment="Left" Margin="0,69,0,0" VerticalAlignment="Top" Width="58"/>
             <Label x:Name="lblScore2" Content="0" HorizontalAlignment="Left" Margin="79,69,0,0" VerticalAlignment="Top" Width="58"/>
 
         </Grid>
-        <Button x:Name="btnStartKamp" Content="Start Kamp" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="439" />
-        <Label Content="Scoretabel" HorizontalAlignment="Left" Margin="454,18,0,0" VerticalAlignment="Top" Width="123"/>
-        <Button x:Name="btnStopWedstrijd" Content="Stop wedstrijd" HorizontalAlignment="Left" Margin="181,321,0,0" VerticalAlignment="Top" Width="104" />
-        <ListBox x:Name="lstScoreTabel" HorizontalAlignment="Left" Height="316" Margin="471,56,0,0" VerticalAlignment="Top" Width="431" Background="#FFF9E1F7"/>
+        <Button x:Name="btnStartKamp" Content="Start Kamp" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="439" Grid.ColumnSpan="2" Click="btnStartKamp_Click" />
+        <Label Content="Scoretabel" HorizontalAlignment="Left" Margin="255,15,0,0" VerticalAlignment="Top" Width="123" Grid.Column="1"/>
+        <Button x:Name="btnStopWedstrijd" Content="Stop wedstrijd" HorizontalAlignment="Left" Margin="181,321,0,0" VerticalAlignment="Top" Width="104" Grid.ColumnSpan="2" Click="btnStopWedstrijd_Click" />
+        <ListBox x:Name="lstScoreTabel" HorizontalAlignment="Left" Height="316" Margin="255,56,0,0" VerticalAlignment="Top" Width="431" Background="#FFF9E1F7" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblTimer" Content="" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="599,15,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblKampDuur" Content="Duur van het kamp:" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="482,14,0,0" VerticalAlignment="Top" Width="112"/>
 
     </Grid>
 </Window>
