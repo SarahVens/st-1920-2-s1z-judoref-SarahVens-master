@@ -9,8 +9,8 @@ namespace JudoRef.Wpf
     public partial class MainWindow : Window
     {
         //Globale Variabelen
- 
- //Code voor de array's
+
+        //Code voor de array's
         /*
         string naamJudoka1;
         string naamJudoka2;
@@ -21,22 +21,22 @@ namespace JudoRef.Wpf
         string scoreNaam;
         int punten;
         int judokanummer;
-        int totaleScoreJudoka1=0;
-        int totaleScoreJudoka2=0;
+        int totaleScoreJudoka1 = 0;
+        int totaleScoreJudoka2 = 0;
 
-//Einde Globale Variabelen
+        //Einde Globale Variabelen
 
-//Array Declareren
+        //Array Declareren
         string[] judokas = new string[2];
         string[] gordels = new string[2];
-   
 
-//Einde Array declareren
+
+        //Einde Array declareren
         public MainWindow()
         {
             InitializeComponent();
         }
- //Methoden
+        //Methoden
         private void VulComboboxGordels(params string[] gordels)
         {
             foreach (string gordel in gordels)
@@ -80,7 +80,7 @@ namespace JudoRef.Wpf
             stpScore2.IsEnabled = true;
 
         }
-//Code voor de array's:
+        //Code voor de array's:
         /*
                 private void VerwerkScoreJudoka1(int punten, string scoreNaam) 
                 {
@@ -101,14 +101,14 @@ namespace JudoRef.Wpf
             stpScore2.IsEnabled = false;
         }
 
- //Einde methoden
+        //Einde methoden
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-           //Titel
+            //Titel
             Title = " Judoref - Sarah Vens";
 
-           //fill out combobox
+            //fill out combobox
             VulComboboxGordels(
                 "Wit",
                 "Geel",
@@ -120,7 +120,7 @@ namespace JudoRef.Wpf
                 );
             BeginSituatie();
         }
- //Buttons
+        //Buttons
         private void btnStartKamp_Click(object sender, RoutedEventArgs e)
         {
 
@@ -132,8 +132,8 @@ namespace JudoRef.Wpf
             gordelJudoka2 = cmbGordel2.SelectedItem.ToString();
             */
             //check if names are filled out
-            if (txtJudoka1.Text == "" || txtJudoka2.Text == "") 
-            { 
+            if (txtJudoka1.Text == "" || txtJudoka2.Text == "")
+            {
                 MessageBox.Show("Gelieve de namen van de judoka in te vullen.");
             }
             else
@@ -146,7 +146,7 @@ namespace JudoRef.Wpf
                 UpdateGuiStartKamp();
                 //fill out listbox
                 lstScoreTabel.Items.Add($"Start kamp tussen {judokas[0]} (Gordel {gordels[0]}) en {judokas[1]} (Gordel {gordels[1]})");
-                
+
             }
         }
 
@@ -155,7 +155,7 @@ namespace JudoRef.Wpf
             BeginSituatie();
         }
 
- //Judoka 1
+        //Judoka 1
         private void btnKoka1_Click(object sender, RoutedEventArgs e)
         {
             punten = 3;
@@ -163,13 +163,13 @@ namespace JudoRef.Wpf
             //voor uitbreiding naar array's
             /*VerwerkScoreJudoka1(punten, scoreNaam);*/
             judokanummer = 0;
-            VerwerkScoreJudoka(punten,scoreNaam,judokanummer);
+            VerwerkScoreJudoka(punten, scoreNaam, judokanummer);
             lstScoreTabel.Items.Add(returnScore);
             totaleScoreJudoka1 = totaleScoreJudoka1 + punten;
             lblScore1.Content = Convert.ToString(totaleScoreJudoka1);
             if (totaleScoreJudoka1 > 25) BtnScoreUit();
 
-
+            
         }
 
         private void btnYuko1_Click(object sender, RoutedEventArgs e)
@@ -184,6 +184,7 @@ namespace JudoRef.Wpf
             totaleScoreJudoka1 = totaleScoreJudoka1 + punten;
             lblScore1.Content = Convert.ToString(totaleScoreJudoka1);
             if (totaleScoreJudoka1 > 25) BtnScoreUit();
+
         }
 
         private void btnWazeri1_Click(object sender, RoutedEventArgs e)
@@ -213,7 +214,7 @@ namespace JudoRef.Wpf
             lblScore1.Content = Convert.ToString(totaleScoreJudoka1);
             if (totaleScoreJudoka1 > 25) BtnScoreUit();
         }
- //Judoka 2
+        //Judoka 2
         private void btnKoka2_Click(object sender, RoutedEventArgs e)
         {
             punten = 3;
